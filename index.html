@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Quran Class Commands - Audio Practice</title>
+    <style>
+        body { font-family: sans-serif; text-align: center; background: #f9f9f9; }
+        h1 { margin-top: 20px; }
+        .commands { display: flex; flex-wrap: wrap; justify-content: center; margin-top: 20px; }
+        .command { background: white; border: 1px solid #ccc; margin: 5px; padding: 20px; min-width: 120px; height: 60px; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 2px 2px 8px rgba(0,0,0,0.1); transition: background 0.3s; }
+        .command:hover { background: #e0e0e0; }
+    </style>
+</head>
+<body>
+    <h1>جمل التعليم الأساسية - الاستماع والتكرار</h1>
+    <div class="commands">
+        <!-- English Phrases Buttons -->
+    </div>
+
+    <script>
+        const commands = [
+            "Listen", "Repeat", "Repeat after me", "After me", "Say it", "Say again", "Say louder", "Read", "Your turn", "My turn", "Start", "Stop", "From the top", "Don’t look", "Look here", "Just this part", "Slowly", "Slowly please", "Louder", "Clear voice", "All of it", "Half of it"
+        ];
+
+        const container = document.querySelector('.commands');
+
+        commands.forEach((command, index) => {
+            const btn = document.createElement('div');
+            btn.className = 'command';
+            btn.textContent = command;
+            btn.addEventListener('click', () => {
+                const audio = new Audio(`sounds/1.${index + 1}.mp3`);
+                audio.play();
+            });
+            container.appendChild(btn);
+        });
+    </script>
+</body>
+</html>
