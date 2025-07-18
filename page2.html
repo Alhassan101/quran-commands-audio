@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Quran Class Commands - Audio Practice</title>
+    <title>Quran Class Commands - Page 2</title>
     <style>
         body { font-family: sans-serif; text-align: center; background: #f9f9f9; }
         h1 { margin-top: 20px; }
@@ -17,13 +17,37 @@
 </head>
 <body>
     <h1>أهم العبارات داخل الحصة</h1>
-    <h2>التلقين</h2>
+    <h2>المراجعة</h2>
     <nav>
         <a href="index.html">Page 1</a>
-        <a href="#">Page 2</a>
+        <a href="page2.html">Page 2</a>
         <a href="page3.html">Page 3</a>
         <a href="page4.html">Page 4</a>
         <a href="page5.html">Page 5</a>
         <a href="page6.html">Page 6</a>
         <a href="page7.html">Page 7</a>
     </nav>
+    <div class="commands">
+        <!-- English Phrases Buttons -->
+    </div>
+
+    <script>
+        const commands = [
+            "Let’s review", "Today’s part", "Yesterday’s part", "What’s next?", "Say from memory", "Without looking", "You forgot", "Try again", "Let’s go back", "Where did we stop?", "Same as before", "Read again", "You skipped this", "Try without help", "Let’s repeat it", "Mistake", "Wrong", "Not clear", "Fix this", "Better now", "This is wrong", "Say it right"
+        ];
+
+        const container = document.querySelector('.commands');
+
+        commands.forEach((command, index) => {
+            const btn = document.createElement('div');
+            btn.className = 'command';
+            btn.textContent = command;
+            btn.addEventListener('click', () => {
+                const audio = new Audio(`Sounds/2.${index + 1}.mp3`);
+                audio.play();
+            });
+            container.appendChild(btn);
+        });
+    </script>
+</body>
+</html>
