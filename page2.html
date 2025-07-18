@@ -38,9 +38,24 @@
 
     <script>
     const sections = [
-        { title: "review-commands", items: [/* your phrases */] },
-        { title: "correction-commands", items: [/* your phrases */] },
-        { title: "class-commands", items: [/* your phrases */] }
+        { title: "review-commands", items: [
+            "Let’s review", "Today’s part", "Yesterday’s part", "What’s next?",
+            "Say from memory", "Without looking", "You forgot", "Try again",
+            "Let’s go back", "Where did we stop?", "Same as before", "Read again",
+            "You skipped this", "Try without help", "Let’s repeat it"
+        ]},
+        { title: "correction-commands", items: [
+            "Mistake", "Wrong", "Not clear", "Fix this", "Better now",
+            "This is wrong", "Say it right", "Slow down", "Don’t stop",
+            "Stop here", "Too fast", "Too slow", "Stretch this", "Don’t stretch",
+            "Correct this"
+        ]},
+        { title: "class-commands", items: [
+            "Ready?", "Let’s begin", "Let’s stop", "Time is up", "Class is over",
+            "Same time tomorrow?", "Open your book", "Close your book", "Show me",
+            "I’ll show you", "Wait", "Let’s continue", "Not now", "Finished?",
+            "Let’s go"
+        ]}
     ];
 
     let counter = 23;
@@ -50,7 +65,7 @@
             const btn = document.createElement('div');
             btn.className = 'command';
             btn.textContent = command;
-            const audioNumber = counter; // Save the number here
+            const audioNumber = counter;
             btn.addEventListener('click', () => {
                 const audio = new Audio(`Sounds/1.${audioNumber}.mp3`);
                 audio.play();
@@ -59,6 +74,6 @@
             counter++;
         });
     });
-</script>
+    </script>
 </body>
 </html>
