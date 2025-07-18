@@ -37,33 +37,28 @@
     <div class="commands" id="class-commands"></div>
 
     <script>
-        const sections = [
-            { title: "review-commands", items: [
-                "Let’s review", "Today’s part", "Yesterday’s part", "What’s next?", "Say from memory", "Without looking", "You forgot", "Try again", "Let’s go back", "Where did we stop?", "Same as before", "Read again", "You skipped this", "Try without help", "Let’s repeat it"
-            ] },
-            { title: "correction-commands", items: [
-                "Mistake", "Wrong", "Not clear", "Fix this", "Better now", "This is wrong", "Say it right", "Slow down", "Don’t stop", "Stop here", "Too fast", "Too slow", "Stretch this", "Don’t stretch", "Correct this"
-            ] },
-            { title: "class-commands", items: [
-                "Ready?", "Let’s begin", "Let’s stop", "Time is up", "Class is over", "Same time tomorrow?", "Open your book", "Close your book", "Show me", "I’ll show you", "Wait", "Let’s continue", "Not now", "Finished?", "Let’s go"
-            ] }
-        ];
+    const sections = [
+        { title: "review-commands", items: [/* your phrases */] },
+        { title: "correction-commands", items: [/* your phrases */] },
+        { title: "class-commands", items: [/* your phrases */] }
+    ];
 
-        let offset = 0;
-        sections.forEach(section => {
-            const container = document.getElementById(section.title);
-            section.items.forEach((command, index) => {
-                const btn = document.createElement('div');
-                btn.className = 'command';
-                btn.textContent = command;
-                btn.addEventListener('click', () => {
-                    const audio = new Audio(`Sounds/1.${offset + index + 23}.mp3`);
-                    audio.play();
-                });
-                container.appendChild(btn);
+    let counter = 23;
+    sections.forEach(section => {
+        const container = document.getElementById(section.title);
+        section.items.forEach(command => {
+            const btn = document.createElement('div');
+            btn.className = 'command';
+            btn.textContent = command;
+            const audioNumber = counter; // Save the number here
+            btn.addEventListener('click', () => {
+                const audio = new Audio(`Sounds/1.${audioNumber}.mp3`);
+                audio.play();
             });
-            offset += section.items.length;
+            container.appendChild(btn);
+            counter++;
         });
-    </script>
+    });
+</script>
 </body>
 </html>
