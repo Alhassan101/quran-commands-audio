@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Quran Class Commands - Audio Practice</title>
+    <title>Quran Class Commands - Page 3</title>
     <style>
         body { font-family: sans-serif; text-align: center; background: #f9f9f9; }
         h1 { margin-top: 20px; }
@@ -16,8 +16,7 @@
     </style>
 </head>
 <body>
-    <h1>أهم العبارات داخل الحصة</h1>
-    <h2>التلقين</h2>
+    <h1>التواصل وإدارة الحصة</h1>
     <nav>
         <a href="index.html">Page 1</a>
         <a href="page2.html">Page 2</a>
@@ -27,3 +26,55 @@
         <a href="page6.html">Page 6</a>
         <a href="page7.html">Page 7</a>
     </nav>
+
+    <h2>التقنية</h2>
+    <div class="commands" id="tech-commands"></div>
+
+    <h2>التشجيع</h2>
+    <div class="commands" id="encourage-commands"></div>
+
+    <h2>إشارات نصية ومكانية</h2>
+    <div class="commands" id="text-location-commands"></div>
+
+    <h2>إدارة الوقت وتنظيم الحضور</h2>
+    <div class="commands" id="time-management-commands"></div>
+
+    <script>
+    const commandGroups = [
+        { title: "tech-commands", start: 68, items: [
+            "Can you hear me?", "I can’t hear you", "Mic on", "Mic off",
+            "Camera on", "Camera off", "Share screen", "Open the file",
+            "Close it", "Connection issue"
+        ] },
+        { title: "encourage-commands", start: 78, items: [
+            "Good", "Very good", "Excellent", "Perfect", "Keep going",
+            "You’re improving", "Try again", "Don’t worry", "You can do it",
+            "Well done"
+        ] },
+        { title: "text-location-commands", start: 88, items: [
+            "Look here", "Look at the screen", "Look at the book", "Look at the board", "Point to the word", "Point to the line", "Read from here", "Follow along", "Focus on this", "This line", "That word", "Go to the next line", "Back to the previous line"
+        ] },
+        { title: "time-management-commands", start: 101, items: [
+            "Please join on time.", "You came early. Great!", "You’re a bit late today.", "Let’s reschedule this class.", "We’ll start five minutes later today.", "We will end five minutes early today.", "Next class will be shorter.", "Please don’t be absent again.", "I will wait for 3 more minutes.", "Let me know if you’ll be late."
+        ] }
+    ];
+
+    commandGroups.forEach(group => {
+        const container = document.getElementById(group.title);
+        let counter = group.start;
+        group.items.forEach(command => {
+            const btn = document.createElement("div");
+            btn.className = "command";
+            btn.textContent = command;
+            const audioNumber = counter;
+            btn.addEventListener("click", () => {
+                const audio = new Audio(`Sounds/1.${audioNumber}.mp3`);
+                audio.play();
+            });
+            container.appendChild(btn);
+            counter++;
+        });
+    });
+    </script>
+</body>
+</html>
