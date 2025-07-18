@@ -41,34 +41,35 @@
 
     <script>
     const commandGroups = [
-        { title: "tech-commands", start: 68, items: [
+        { title: "tech-commands", startFile: "1", startNumber: 68, items: [
             "Can you hear me?", "I can’t hear you", "Mic on", "Mic off",
             "Camera on", "Camera off", "Share screen", "Open the file",
             "Close it", "Connection issue"
         ] },
-        { title: "encourage-commands", start: 78, items: [
+        { title: "encourage-commands", startFile: "1", startNumber: 78, items: [
             "Good", "Very good", "Excellent", "Perfect", "Keep going",
             "You’re improving", "Try again", "Don’t worry", "You can do it",
             "Well done"
         ] },
-        { title: "text-location-commands", start: 88, items: [
+        { title: "text-location-commands", startFile: "1", startNumber: 88, items: [
             "Look here", "Look at the screen", "Look at the book", "Look at the board", "Point to the word", "Point to the line", "Read from here", "Follow along", "Focus on this", "This line", "That word", "Go to the next line", "Back to the previous line"
         ] },
-        { title: "time-management-commands", start: 101, items: [
+        { title: "time-management-commands", startFile: "2", startNumber: 1, items: [
             "Please join on time.", "You came early. Great!", "You’re a bit late today.", "Let’s reschedule this class.", "We’ll start five minutes later today.", "We will end five minutes early today.", "Next class will be shorter.", "Please don’t be absent again.", "I will wait for 3 more minutes.", "Let me know if you’ll be late."
         ] }
     ];
 
     commandGroups.forEach(group => {
         const container = document.getElementById(group.title);
-        let counter = group.start;
+        let counter = group.startNumber;
         group.items.forEach(command => {
             const btn = document.createElement("div");
             btn.className = "command";
             btn.textContent = command;
+            const file = group.startFile;
             const audioNumber = counter;
             btn.addEventListener("click", () => {
-                const audio = new Audio(`Sounds/1.${audioNumber}.mp3`);
+                const audio = new Audio(`Sounds/${file}.${audioNumber}.mp3`);
                 audio.play();
             });
             container.appendChild(btn);
